@@ -40,7 +40,7 @@ type RegisterReqBody struct {
 // @Tags authentication
 // @Accept */*
 // @Produce json
-// @Param data body RegisterReqBody true "Inputan yang benar"
+// @Param data body RegisterReqBody true "True input"
 // @Success 200 {string} Register
 // @Router /register [post]
 func Register(c *gin.Context) {
@@ -51,11 +51,43 @@ func Register(c *gin.Context) {
 		return
 	}
 
+	if data.Name == "" {
+		c.JSON(400, gin.H{
+			"message": "Should contain name field",
+		})
+		c.Abort()
+		return
+	}
+
+	if data.Password == "" {
+		c.JSON(400, gin.H{
+			"message": "Should contain password field",
+		})
+		c.Abort()
+		return
+	}
+
+	if data.Email == "" {
+		c.JSON(400, gin.H{
+			"message": "Should contain email field",
+		})
+		c.Abort()
+		return
+	}
+
+	if data.Phone == "" {
+		c.JSON(400, gin.H{
+			"message": "Should contain phone field",
+		})
+		c.Abort()
+		return
+	}
+
 	var u models.User
 	err := models.DB.Where("email = ?", data.Email).First(&u).Error
 	if err == nil {
 		c.JSON(400, gin.H{
-			"message": "email sudah pernah dipakai",
+			"message": "Email has been used before",
 		})
 		c.Abort()
 		return
@@ -110,7 +142,7 @@ type LoginBody struct {
 // @Tags authentication
 // @Accept */*
 // @Produce json
-// @Param data body LoginBody true "Inputan yang benar"
+// @Param data body LoginBody true "True input"
 // @Success 200 {string} Login
 // @Router /v1/login [post]
 func Login(c *gin.Context) {
@@ -192,7 +224,7 @@ func UserInfo(c *gin.Context) {
 	if err == nil {
 		c.JSON(http.StatusOK, user)
 	} else {
-		c.JSON(http.StatusNotFound, utils.ExceptionResponse("Gagal mendapat user"))
+		c.JSON(http.StatusNotFound, utils.ExceptionResponse("Failed when trying to get user information"))
 	}
 }
 
@@ -210,7 +242,7 @@ func GetUserNameById(c *gin.Context) {
 	if err == nil {
 		c.JSON(http.StatusOK, user)
 	} else {
-		c.JSON(http.StatusNotFound, utils.ExceptionResponse("Gagal mendapat user"))
+		c.JSON(http.StatusNotFound, utils.ExceptionResponse("User not found"))
 	}
 }
 
@@ -221,7 +253,7 @@ func GetAllUser(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, gin.H{
-		"message": "berhasil get all user",
+		"message": "success get all user",
 		"data":    user,
 	})
 }
@@ -233,14 +265,14 @@ func DeleteUser(c *gin.Context) {
 		err = models.DB.Delete(&user).Error
 		if err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{
-				"message": "gagal delete",
+				"message": "failes delete",
 			})
 		} else {
 			c.JSON(http.StatusOK, gin.H{
-				"message": "berhasil delete",
+				"message": "success delete",
 			})
 		}
 	} else {
-		c.JSON(http.StatusNotFound, utils.ExceptionResponse("Gagal mendapat user"))
+		c.JSON(http.StatusNotFound, utils.ExceptionResponse("failed get user"))
 	}
 }
