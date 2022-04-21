@@ -1,0 +1,330 @@
+basePath: /
+definitions:
+  controllers.LoginBody:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    type: object
+  controllers.RegisterReqBody:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+    type: object
+  transactions.AddMerchantBody:
+    properties:
+      account_id:
+        type: string
+      address:
+        type: string
+      name:
+        type: string
+    type: object
+  transactions.AddRewardBody:
+    properties:
+      name:
+        type: string
+      price:
+        type: integer
+      stock:
+        type: integer
+    type: object
+  transactions.BonusCheckerBody:
+    properties:
+      amount:
+        type: integer
+    type: object
+  transactions.ExchangeRewardBody:
+    properties:
+      qty:
+        type: integer
+      reward_id:
+        type: integer
+    type: object
+  transactions.PayBody:
+    properties:
+      address:
+        type: string
+      amount:
+        type: integer
+      bankAccount:
+        type: string
+      merchant_id:
+        type: integer
+    type: object
+  transactions.TopUpBody:
+    properties:
+      amount:
+        type: integer
+    type: object
+host: localhost:8080
+info:
+  contact:
+    name: Kelompok 14
+  description: This is a API for cakrawala.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Cakrawala API
+  version: "1.0"
+paths:
+  /admin/add-reward:
+    post:
+      consumes:
+      - '*/*'
+      description: Add New Reward.
+      parameters:
+      - description: Inputan yang benar
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/transactions.AddRewardBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: AddReward.
+      tags:
+      - authentication
+  /admin/merchant:
+    get:
+      consumes:
+      - '*/*'
+      description: Show All Merchants for Admin.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: GetAllMerchantsAdmin.
+      tags:
+      - authentication
+  /admin/merchant/add:
+    post:
+      consumes:
+      - '*/*'
+      description: Add New Merchant.
+      parameters:
+      - description: Inputan yang benar
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/transactions.AddMerchantBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: AddMerchant.
+      tags:
+      - authentication
+  /admin/transaction-history-user/:id:
+    post:
+      consumes:
+      - '*/*'
+      description: get history transaction by user.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: GetTransactionHistoryUser.
+  /register:
+    post:
+      consumes:
+      - '*/*'
+      description: Add New User.
+      parameters:
+      - description: Inputan yang benar
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.RegisterReqBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Register.
+      tags:
+      - authentication
+  /v1/exchange-reward:
+    post:
+      consumes:
+      - '*/*'
+      description: Exchange Reward with Points.
+      parameters:
+      - description: Inputan yang benar
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/transactions.ExchangeRewardBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: ExchangeReward.
+      tags:
+      - authentication
+  /v1/get-rewards:
+    get:
+      consumes:
+      - '*/*'
+      description: Show All Rewards for User.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: GetAllRewards.
+      tags:
+      - authentication
+  /v1/login:
+    post:
+      consumes:
+      - '*/*'
+      description: Add New User.
+      parameters:
+      - description: Inputan yang benar
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.LoginBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Login.
+      tags:
+      - authentication
+  /v1/merchant:
+    get:
+      consumes:
+      - '*/*'
+      description: Show All Merchants for User.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: GetAllMerchantsUser.
+      tags:
+      - authentication
+  /v1/pay-calculate-points:
+    post:
+      consumes:
+      - '*/*'
+      description: Check estimation user cashback from payment to merchant.
+      parameters:
+      - description: Inputan yang benar
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/transactions.BonusCheckerBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: BonusCheckController.
+      tags:
+      - authentication
+  /v1/pay-merchant:
+    post:
+      consumes:
+      - '*/*'
+      description: Payment into merchant.
+      parameters:
+      - description: Inputan yang benar
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/transactions.PayBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: PaymentController.
+      tags:
+      - authentication
+  /v1/self:
+    get:
+      consumes:
+      - '*/*'
+      description: Add New User.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: UserInfo.
+      tags:
+      - authentication
+  /v1/top-up:
+    post:
+      consumes:
+      - '*/*'
+      description: Add New User.
+      parameters:
+      - description: Inputan yang benar
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/transactions.TopUpBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: TopUpRequest.
+      tags:
+      - authentication
+schemes:
+- http
+swagger: "2.0"

@@ -1,0 +1,48 @@
+stages:
+  - build
+  - test
+  - deploy
+  - mobile-build
+
+build:
+  stage: build
+  image: golang:latest
+  script:
+    - cd backend
+    - go get -d -v
+    - go build -o hehe -v .
+
+test:
+  stage: test
+  image: golang:latest
+  services:  
+    - postgres:12.2-alpine
+  variables:
+    POSTGRES_DB: testingdb
+    POSTGRES_USER: pege
+    POSTGRES_PASSWORD: asfd1234
+    POSTGRES_HOST_AUTH_METHOD: trust
+  script:
+    - cd backend
+    - go get -d -v
+    - export LF=Y
+    - export DBUSN=pege
+    - export DBPASS=asfd1234
+    - export DBHOST=postgres
+    - export DBPORT=5432
+    - export DBNAME=testingdb
+    - go test cakrawala.id/m/test
+
+deploy:
+  stage: deploy
+  script:
+    - echo "coming soon ya gan"
+
+# mobile:
+#   stage: mobile-build
+#   image: "cirrusci/flutter:1.22.5"
+#   script:
+#     - cd mobile
+#     - flutter packages get
+#     - flutter doctor
+#     - flutter build apk

@@ -1,0 +1,144 @@
+@startuml
+namespace controllers {
+    class LoginBody << (S,Aquamarine) >> {
+        + Email string
+        + Password string
+
+    }
+    class RegisterReqBody << (S,Aquamarine) >> {
+        + Email string
+        + Password string
+        + Name string
+        + Phone string
+
+    }
+}
+
+
+namespace models {
+    class Auth << (S,Aquamarine) >> {
+        + ID uint
+        + Token string
+        + ExpiredAt time.Time
+        + UserID uint
+        + User User
+        + CreatedAt time.Time
+        + UpdatedAt time.Time
+
+    }
+    class HistoryReward << (S,Aquamarine) >> {
+        - id uint
+
+        + Quantity uint16
+        + PointsPaid uint32
+        + CreatedAt time.Time
+        + UpdatedAt time.Time
+        + UserID uint
+        + User User
+        + RewardID uint
+        + Reward Reward
+
+    }
+    class Merchant << (S,Aquamarine) >> {
+        + ID uint
+        + Name string
+        + Address string
+        + AccountId string
+        + CreatedAt time.Time
+        + UpdatedAt time.Time
+        + Transaksi []Transaksi
+
+    }
+    class Reward << (S,Aquamarine) >> {
+        + ID uint
+        + Name string
+        + Price uint32
+        + Stock int16
+        + CreatedAt time.Time
+        + UpdatedAt time.Time
+        + Claims []HistoryReward
+
+    }
+    class Transaksi << (S,Aquamarine) >> {
+        + ID uint
+        + Amount uint64
+        + Exp uint32
+        + Status string
+        + Cashback uint32
+        + CreatedAt time.Time
+        + UpdatedAt time.Time
+        + IsDebit bool
+        + UserID uint
+        + User User
+        + MerchantID *uint
+        + Merchant *Merchant
+        + FriendID *uint
+        + Friend *User
+
+    }
+    class User << (S,Aquamarine) >> {
+        + ID uint
+        + Email string
+        + Password string
+        + Name string
+        + Phone string
+        + Balance uint64
+        + Admin bool
+        + Point uint32
+        + Exp uint32
+        + CreatedAt time.Time
+        + UpdatedAt time.Time
+        + Token []Auth
+        + Transaksi []Transaksi
+        + Reward []HistoryReward
+
+    }
+}
+
+
+namespace transactions {
+    class AddMerchantBody << (S,Aquamarine) >> {
+        + Name string
+        + Address string
+        + AccountId string
+
+    }
+    class AddRewardBody << (S,Aquamarine) >> {
+        + Name string
+        + Price uint32
+        + Stock int16
+
+    }
+    class BonusCheckerBody << (S,Aquamarine) >> {
+        + Amount uint64
+
+    }
+    class ExchangeRewardBody << (S,Aquamarine) >> {
+        + RewardID uint
+        + Quantity int16
+
+    }
+    class PayBody << (S,Aquamarine) >> {
+        + MerchantId uint
+        + Amount uint64
+        + Address string
+        + BankAccount string
+
+    }
+    class PhoneNumberBody << (S,Aquamarine) >> {
+        + Phone string
+
+    }
+    class TopUpBody << (S,Aquamarine) >> {
+        + Amount uint64
+
+    }
+    class TransferBody << (S,Aquamarine) >> {
+        + Amount uint64
+        + FriendID uint
+
+    }
+}
+
+
+@enduml

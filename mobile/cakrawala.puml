@@ -1,0 +1,1012 @@
+@startuml
+set namespaceSeparator ::\n
+
+class "cakrawala_mobile::\ncomponents::\nblurry-dialog.dart::\nBlurryDialog" {
+  +String title
+  +String content
+  +void Function()? continueCallBack
+  +TextStyle textStyle
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nblurry-dialog.dart::\nBlurryDialog" o-- "dart::\nui::\nvoid Function()"
+"cakrawala_mobile::\ncomponents::\nblurry-dialog.dart::\nBlurryDialog" o-- "flutter::\nsrc::\npainting::\ntext_style.dart::\nTextStyle"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nblurry-dialog.dart::\nBlurryDialog"
+
+class "cakrawala_mobile::\ncomponents::\nbottom_confirm_button.dart::\nButtonConfirmButton" {
+  +String text
+  +void Function() press
+  +Color color
+  +Color textColor
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nbottom_confirm_button.dart::\nButtonConfirmButton" o-- "dart::\nui::\nvoid Function()"
+"cakrawala_mobile::\ncomponents::\nbottom_confirm_button.dart::\nButtonConfirmButton" o-- "dart::\nui::\nColor"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nbottom_confirm_button.dart::\nButtonConfirmButton"
+
+class "cakrawala_mobile::\ncomponents::\nchoose_account_table1.dart::\nUser" {
+  +int id
+  +String name
+  +String phone
+  +int exp
+  +String email
+  +bool selected
+  +String toString()
+  {static} +User getSelectedUser()
+}
+
+class "cakrawala_mobile::\ncomponents::\nchoose_account_table1.dart::\nChooseAccountTable" {
+  +String phone
+  +State<ChooseAccountTable> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\ncomponents::\nchoose_account_table1.dart::\nChooseAccountTable"
+
+class "cakrawala_mobile::\ncomponents::\nchoose_account_table1.dart::\n_ChooseAccountTableState" {
+  -Future<List<User>> _users
+  +List<User> users
+  +List<User> usersFiltered
+  +TextEditingController controller
+  -String _searchResult
+  +int selectedIndex
+  +void initState()
+  +Future<List<User>> loadData()
+  +double handleOverflow()
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nchoose_account_table1.dart::\n_ChooseAccountTableState" o-- "flutter::\nsrc::\nwidgets::\neditable_text.dart::\nTextEditingController"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\ncomponents::\nchoose_account_table1.dart::\n_ChooseAccountTableState"
+
+class "cakrawala_mobile::\ncomponents::\nchoose_account_table2.dart::\nChooseAccountTable" {
+  +State<ChooseAccountTable> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\ncomponents::\nchoose_account_table2.dart::\nChooseAccountTable"
+
+class "cakrawala_mobile::\ncomponents::\nchoose_account_table2.dart::\n_ChooseAccountTableState" {
+  +List<User> users
+  +List<User> usersFiltered
+  +TextEditingController controller
+  -String _searchResult
+  +void initState()
+  +double handleOverflow()
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nchoose_account_table2.dart::\n_ChooseAccountTableState" o-- "flutter::\nsrc::\nwidgets::\neditable_text.dart::\nTextEditingController"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\ncomponents::\nchoose_account_table2.dart::\n_ChooseAccountTableState"
+
+class "cakrawala_mobile::\ncomponents::\nchoose_gift_table.dart::\nGift" {
+  +int id
+  +String name
+  +int price
+  +int stock
+  +String toString()
+  {static} +Gift getSelectedGift()
+}
+
+class "cakrawala_mobile::\ncomponents::\nchoose_gift_table.dart::\nChooseGiftTable" {
+  +State<ChooseGiftTable> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\ncomponents::\nchoose_gift_table.dart::\nChooseGiftTable"
+
+class "cakrawala_mobile::\ncomponents::\nchoose_gift_table.dart::\n_ChooseGiftTableState" {
+  -Future<List<Gift>> _gifts
+  +List<Gift> gifts
+  +List<Gift> giftsFiltered
+  +TextEditingController controller
+  -String _searchResult
+  +int selectedIndex
+  +void initState()
+  +Future<List<Gift>> loadData()
+  +double handleOverflow()
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nchoose_gift_table.dart::\n_ChooseGiftTableState" o-- "flutter::\nsrc::\nwidgets::\neditable_text.dart::\nTextEditingController"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\ncomponents::\nchoose_gift_table.dart::\n_ChooseGiftTableState"
+
+class "cakrawala_mobile::\ncomponents::\nchoose_merchant_table.dart::\nMerchant" {
+  +int id
+  +String name
+  +String alamat
+  +String no_rek
+  +String toString()
+  {static} +Merchant getSelectedMerchant()
+}
+
+class "cakrawala_mobile::\ncomponents::\nchoose_merchant_table.dart::\nChooseMerchantTable" {
+  +State<ChooseMerchantTable> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\ncomponents::\nchoose_merchant_table.dart::\nChooseMerchantTable"
+
+class "cakrawala_mobile::\ncomponents::\nchoose_merchant_table.dart::\n_ChooseMerchantTableState" {
+  -Future<List<Merchant>> _merchants
+  +List<Merchant> merchants
+  +List<Merchant> merchantsFiltered
+  +TextEditingController controller
+  -String _searchResult
+  +int selectedIndex
+  +void initState()
+  +Future<List<Merchant>> loadData()
+  +double handleOverflow()
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nchoose_merchant_table.dart::\n_ChooseMerchantTableState" o-- "flutter::\nsrc::\nwidgets::\neditable_text.dart::\nTextEditingController"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\ncomponents::\nchoose_merchant_table.dart::\n_ChooseMerchantTableState"
+
+class "cakrawala_mobile::\ncomponents::\ncircle_profile_icon.dart::\nCircleIcon" {
+  +String textName
+  +void Function() press
+  +Color color
+  +Color textColor
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\ncircle_profile_icon.dart::\nCircleIcon" o-- "dart::\nui::\nvoid Function()"
+"cakrawala_mobile::\ncomponents::\ncircle_profile_icon.dart::\nCircleIcon" o-- "dart::\nui::\nColor"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\ncircle_profile_icon.dart::\nCircleIcon"
+
+class "cakrawala_mobile::\ncomponents::\ncustom_app_bar.dart::\nCustomAppBar" {
+  +String text
+  +Color color
+  +Color textColor
+  +bool center
+  +bool backButton
+  +Size preferredSize
+  +Widget addBackButton()
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\ncustom_app_bar.dart::\nCustomAppBar" o-- "dart::\nui::\nColor"
+"cakrawala_mobile::\ncomponents::\ncustom_app_bar.dart::\nCustomAppBar" o-- "dart::\nui::\nSize"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\ncustom_app_bar.dart::\nCustomAppBar"
+"flutter::\nsrc::\nwidgets::\npreferred_size.dart::\nPreferredSizeWidget" <|-- "cakrawala_mobile::\ncomponents::\ncustom_app_bar.dart::\nCustomAppBar"
+
+class "cakrawala_mobile::\ncomponents::\nenter_amount_input.dart::\nEnterAmountInput" {
+  +String hintText
+  +IconData icon
+  +void Function(String) onChanged
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nenter_amount_input.dart::\nEnterAmountInput" o-- "flutter::\nsrc::\nwidgets::\nicon_data.dart::\nIconData"
+"cakrawala_mobile::\ncomponents::\nenter_amount_input.dart::\nEnterAmountInput" o-- "flutter::\nsrc::\nfoundation::\nbasic_types.dart::\nvoid Function(String)"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nenter_amount_input.dart::\nEnterAmountInput"
+
+class "cakrawala_mobile::\ncomponents::\nformatter.dart::\nDateFormatter" {
+  +int day
+  +int month
+  +int year
+  +int hour
+  +int minute
+  +int second
+  +dynamic convertMonth()
+  +dynamic convertNumber()
+  +String toString()
+}
+
+class "cakrawala_mobile::\ncomponents::\nhave_an_account_check%20copy.dart::\nHaveAnAccountCheck" {
+  +bool login
+  +void Function() press
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nhave_an_account_check%20copy.dart::\nHaveAnAccountCheck" o-- "dart::\nui::\nvoid Function()"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nhave_an_account_check%20copy.dart::\nHaveAnAccountCheck"
+
+class "cakrawala_mobile::\ncomponents::\nhave_an_account_check.dart::\nHaveAnAccountCheck" {
+  +bool login
+  +void Function() press
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nhave_an_account_check.dart::\nHaveAnAccountCheck" o-- "dart::\nui::\nvoid Function()"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nhave_an_account_check.dart::\nHaveAnAccountCheck"
+
+class "cakrawala_mobile::\ncomponents::\nnumber_formatter.dart::\nNumberFormatter" {
+  +String formatNumber()
+}
+
+class "cakrawala_mobile::\ncomponents::\nrounded_button%20copy.dart::\nRoundedButton" {
+  +String text
+  +void Function() press
+  +Color color
+  +Color textColor
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nrounded_button%20copy.dart::\nRoundedButton" o-- "dart::\nui::\nvoid Function()"
+"cakrawala_mobile::\ncomponents::\nrounded_button%20copy.dart::\nRoundedButton" o-- "dart::\nui::\nColor"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nrounded_button%20copy.dart::\nRoundedButton"
+
+class "cakrawala_mobile::\ncomponents::\nrounded_button.dart::\nRoundedButton" {
+  +String text
+  +void Function() press
+  +Color color
+  +Color textColor
+  +double fontSize
+  +double height
+  +double width
+  +bool padding
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nrounded_button.dart::\nRoundedButton" o-- "dart::\nui::\nvoid Function()"
+"cakrawala_mobile::\ncomponents::\nrounded_button.dart::\nRoundedButton" o-- "dart::\nui::\nColor"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nrounded_button.dart::\nRoundedButton"
+
+class "cakrawala_mobile::\ncomponents::\nrounded_input_field%20copy.dart::\nRoundedInputField" {
+  +String hintText
+  +IconData icon
+  +void Function(String) onChanged
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nrounded_input_field%20copy.dart::\nRoundedInputField" o-- "flutter::\nsrc::\nwidgets::\nicon_data.dart::\nIconData"
+"cakrawala_mobile::\ncomponents::\nrounded_input_field%20copy.dart::\nRoundedInputField" o-- "flutter::\nsrc::\nfoundation::\nbasic_types.dart::\nvoid Function(String)"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nrounded_input_field%20copy.dart::\nRoundedInputField"
+
+class "cakrawala_mobile::\ncomponents::\nrounded_input_field.dart::\nRoundedInputField" {
+  +String hintText
+  +IconData icon
+  +void Function(String) onChanged
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nrounded_input_field.dart::\nRoundedInputField" o-- "flutter::\nsrc::\nwidgets::\nicon_data.dart::\nIconData"
+"cakrawala_mobile::\ncomponents::\nrounded_input_field.dart::\nRoundedInputField" o-- "flutter::\nsrc::\nfoundation::\nbasic_types.dart::\nvoid Function(String)"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nrounded_input_field.dart::\nRoundedInputField"
+
+class "cakrawala_mobile::\ncomponents::\nrounded_password_field%20copy.dart::\nRoundedPasswordField" {
+  +void Function(String) onChanged
+  +RoundedPasswordFieldState createState()
+}
+
+"cakrawala_mobile::\ncomponents::\nrounded_password_field%20copy.dart::\nRoundedPasswordField" o-- "flutter::\nsrc::\nfoundation::\nbasic_types.dart::\nvoid Function(String)"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\ncomponents::\nrounded_password_field%20copy.dart::\nRoundedPasswordField"
+
+class "cakrawala_mobile::\ncomponents::\nrounded_password_field%20copy.dart::\nRoundedPasswordFieldState" {
+  -bool _isVisible
+  +void handleVisibility()
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\ncomponents::\nrounded_password_field%20copy.dart::\nRoundedPasswordFieldState"
+
+class "cakrawala_mobile::\ncomponents::\nrounded_password_field.dart::\nRoundedPasswordField" {
+  +void Function(String) onChanged
+  +RoundedPasswordFieldState createState()
+}
+
+"cakrawala_mobile::\ncomponents::\nrounded_password_field.dart::\nRoundedPasswordField" o-- "flutter::\nsrc::\nfoundation::\nbasic_types.dart::\nvoid Function(String)"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\ncomponents::\nrounded_password_field.dart::\nRoundedPasswordField"
+
+class "cakrawala_mobile::\ncomponents::\nrounded_password_field.dart::\nRoundedPasswordFieldState" {
+  -bool _isVisible
+  +void handleVisibility()
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\ncomponents::\nrounded_password_field.dart::\nRoundedPasswordFieldState"
+
+class "cakrawala_mobile::\ncomponents::\nrounded_payment_detail_field.dart::\nRoundedPaymentDetail" {
+  +String nama
+  +int nominal
+  +int points
+  +bool amount
+  +Widget amountOrMerchant()
+  +Widget pointAttr()
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nrounded_payment_detail_field.dart::\nRoundedPaymentDetail"
+
+class "cakrawala_mobile::\ncomponents::\nsearch_box.dart::\nSearchBox" {
+  +String hintText
+  +void Function(String) onChanged
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nsearch_box.dart::\nSearchBox" o-- "flutter::\nsrc::\nfoundation::\nbasic_types.dart::\nvoid Function(String)"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nsearch_box.dart::\nSearchBox"
+
+class "cakrawala_mobile::\ncomponents::\ntext_account_attribute.dart::\nTextName" {
+  +String text
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\ntext_account_attribute.dart::\nTextName"
+
+class "cakrawala_mobile::\ncomponents::\ntext_account_attribute.dart::\nTextPhone" {
+  +String text
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\ntext_account_attribute.dart::\nTextPhone"
+
+class "cakrawala_mobile::\ncomponents::\ntext_account_attribute.dart::\nTextExp" {
+  +String text
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\ntext_account_attribute.dart::\nTextExp"
+
+class "cakrawala_mobile::\ncomponents::\ntext_account_template.dart::\nTextAccountTemplate" {
+  +String text
+  +TextAlign align
+  +FontWeight weight
+  +double size
+  +Color color
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\ntext_account_template.dart::\nTextAccountTemplate" o-- "dart::\nui::\nTextAlign"
+"cakrawala_mobile::\ncomponents::\ntext_account_template.dart::\nTextAccountTemplate" o-- "dart::\nui::\nFontWeight"
+"cakrawala_mobile::\ncomponents::\ntext_account_template.dart::\nTextAccountTemplate" o-- "dart::\nui::\nColor"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\ntext_account_template.dart::\nTextAccountTemplate"
+
+class "cakrawala_mobile::\ncomponents::\ntext_field_container%20copy.dart::\nTextFieldContainer" {
+  +Widget child
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\ntext_field_container%20copy.dart::\nTextFieldContainer" o-- "flutter::\nsrc::\nwidgets::\nframework.dart::\nWidget"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\ntext_field_container%20copy.dart::\nTextFieldContainer"
+
+class "cakrawala_mobile::\ncomponents::\ntext_field_container.dart::\nTextFieldContainer" {
+  +Widget child
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\ntext_field_container.dart::\nTextFieldContainer" o-- "flutter::\nsrc::\nwidgets::\nframework.dart::\nWidget"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\ntext_field_container.dart::\nTextFieldContainer"
+
+class "cakrawala_mobile::\ncomponents::\nuser_info_text.dart::\nUserInfoText" {
+  +String attribute
+  +String value
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nuser_info_text.dart::\nUserInfoText"
+
+class "cakrawala_mobile::\ncomponents::\nuser_not_found.dart::\nUserNotFound" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nuser_not_found.dart::\nUserNotFound"
+
+class "cakrawala_mobile::\ncomponents::\nuser_profile_container.dart::\nUserProfileContainer" {
+  +String name
+  +String phone
+  +String email
+  {static} +double pad
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nuser_profile_container.dart::\nUserProfileContainer"
+
+class "cakrawala_mobile::\ncomponents::\nwhite_text_field_container.dart::\nWhiteFieldContainer" {
+  +Widget child
+  +double round
+  +Widget build()
+}
+
+"cakrawala_mobile::\ncomponents::\nwhite_text_field_container.dart::\nWhiteFieldContainer" o-- "flutter::\nsrc::\nwidgets::\nframework.dart::\nWidget"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\ncomponents::\nwhite_text_field_container.dart::\nWhiteFieldContainer"
+
+class "cakrawala_mobile::\nmain.dart::\nMyApp" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nmain.dart::\nMyApp"
+
+class "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nbody.dart::\nBody" {
+  +State<Body> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nbody.dart::\nBody"
+
+class "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nbody.dart::\n_BodyState" {
+  -int _currentIndex
+  +void onItemTapped()
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nbody.dart::\n_BodyState"
+
+class "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nhistory.dart::\nHistory" {
+  +State<History> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nhistory.dart::\nHistory"
+
+class "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nhistory.dart::\n_HistoryState" {
+  +List<TransactionHistory> transData
+  +void initState()
+  +void loadState()
+  -DataTable _createDataTable()
+  -List<DataColumn> _createColumns()
+  -List<DataRow> _createRows()
+  -DataRow _createRow()
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nhistory.dart::\n_HistoryState"
+
+class "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nhistory_container.dart::\nHistoryContainer" {
+  +Widget child
+  +Widget build()
+}
+
+"cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nhistory_container.dart::\nHistoryContainer" o-- "flutter::\nsrc::\nwidgets::\nframework.dart::\nWidget"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nhistory_container.dart::\nHistoryContainer"
+
+class "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nicon_button.dart::\nCustomIconButton" {
+  +String text
+  +void Function() press
+  +Color color
+  +Color textColor
+  +IconData icon_
+  +Widget build()
+}
+
+"cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nicon_button.dart::\nCustomIconButton" o-- "dart::\nui::\nvoid Function()"
+"cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nicon_button.dart::\nCustomIconButton" o-- "dart::\nui::\nColor"
+"cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nicon_button.dart::\nCustomIconButton" o-- "flutter::\nsrc::\nwidgets::\nicon_data.dart::\nIconData"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nicon_button.dart::\nCustomIconButton"
+
+class "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nwallet_info.dart::\nWalletInfo" {
+  {static} +double pad
+  +State<WalletInfo> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nwallet_info.dart::\nWalletInfo"
+
+class "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nwallet_info.dart::\n_WalletInfoState" {
+  +String balance
+  +String points
+  +String rewards
+  +Map<String, dynamic> userData
+  +void initState()
+  +void loadState()
+  +Widget build()
+  -dynamic _showDialog()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nwallet_info.dart::\n_WalletInfoState"
+
+class "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nwhite_text_field_container.dart::\nWhiteFieldContainer" {
+  +Widget child
+  +Widget build()
+}
+
+"cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nwhite_text_field_container.dart::\nWhiteFieldContainer" o-- "flutter::\nsrc::\nwidgets::\nframework.dart::\nWidget"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nHomepage::\ncomponents::\nwhite_text_field_container.dart::\nWhiteFieldContainer"
+
+class "cakrawala_mobile::\nScreens::\nHomepage::\nhomepage_screen.dart::\nHomepage" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nHomepage::\nhomepage_screen.dart::\nHomepage"
+
+class "cakrawala_mobile::\nScreens::\nLogin::\ncomponents::\nbody.dart::\nBody" {
+  +State<Body> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nLogin::\ncomponents::\nbody.dart::\nBody"
+
+class "cakrawala_mobile::\nScreens::\nLogin::\ncomponents::\nbody.dart::\n_BodyState" {
+  +String emailUser
+  +String passwordUser
+  +String buttonText
+  +Widget build()
+  -dynamic _showDialog()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nLogin::\ncomponents::\nbody.dart::\n_BodyState"
+
+class "cakrawala_mobile::\nScreens::\nLogin::\ncomponents::\ncomponents.dart::\nBackground" {
+  +Widget child
+  +Widget build()
+}
+
+"cakrawala_mobile::\nScreens::\nLogin::\ncomponents::\ncomponents.dart::\nBackground" o-- "flutter::\nsrc::\nwidgets::\nframework.dart::\nWidget"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nLogin::\ncomponents::\ncomponents.dart::\nBackground"
+
+class "cakrawala_mobile::\nScreens::\nLogin::\nlogin_screen.dart::\nLoginScreen" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nLogin::\nlogin_screen.dart::\nLoginScreen"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_confirm_payment.dart::\nBodyConfirmPayment" {
+  +Merchant choosenMerchant
+  +State<BodyConfirmPayment> createState()
+}
+
+"cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_confirm_payment.dart::\nBodyConfirmPayment" o-- "cakrawala_mobile::\ncomponents::\nchoose_merchant_table.dart::\nMerchant"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_confirm_payment.dart::\nBodyConfirmPayment"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_confirm_payment.dart::\n_BodyConfirmPaymentState" {
+  +int amount
+  +dynamic getCurrentTime()
+  +Widget build()
+  -dynamic _showDialog()
+  +dynamic showConfirmDialog()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_confirm_payment.dart::\n_BodyConfirmPaymentState"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_invoice.dart::\nInvoiceText" {
+  +String text
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_invoice.dart::\nInvoiceText"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_invoice.dart::\nWhiteInvoiceContainer" {
+  +String title
+  +String subtitle
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_invoice.dart::\nWhiteInvoiceContainer"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_invoice.dart::\nProductsDetail" {
+  +String productName
+  +double price
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_invoice.dart::\nProductsDetail"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_invoice.dart::\nProduct" {
+  +String productName
+  +int price
+}
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_invoice.dart::\nBodyInvoice" {
+  +int id
+  +int nominal
+  +int points
+  +String namaMerchant
+  +String time
+  +List<Widget> showProduct()
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_invoice.dart::\nBodyInvoice"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_pay_to_merchant.dart::\nBodyPayToMerchant" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_pay_to_merchant.dart::\nBodyPayToMerchant"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_transaction_successful.dart::\nBodyTransactionSuccessful" {
+  +int id
+  +int nominal
+  +int points
+  +String namaMerchant
+  +String time
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\nbody_transaction_successful.dart::\nBodyTransactionSuccessful"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\ndummy_data.dart::\nDummyDataMerchant" {
+  +List<Map<String, Object>> data
+}
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ncomponents::\ndummy_data.dart::\nDummyDataProducts" {
+  +List<Map<String, Object>> data
+}
+
+class "cakrawala_mobile::\nScreens::\nPayment::\nconfirm_payment.dart::\nConfirmPaymentScreen" {
+  +Merchant choosenMerchant
+  +Widget build()
+}
+
+"cakrawala_mobile::\nScreens::\nPayment::\nconfirm_payment.dart::\nConfirmPaymentScreen" o-- "cakrawala_mobile::\ncomponents::\nchoose_merchant_table.dart::\nMerchant"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\nconfirm_payment.dart::\nConfirmPaymentScreen"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ninvoice.dart::\nInvoiceScreen" {
+  +int id
+  +int nominal
+  +int points
+  +String namaMerchant
+  +String time
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\ninvoice.dart::\nInvoiceScreen"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\npay_to_merchant.dart::\nPayToMerchantScreen" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\npay_to_merchant.dart::\nPayToMerchantScreen"
+
+class "cakrawala_mobile::\nScreens::\nPayment::\ntransaction_successful.dart::\nTransactionSuccessfulScreen" {
+  +int id
+  +int nominal
+  +int points
+  +String namaMerchant
+  +String time
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nPayment::\ntransaction_successful.dart::\nTransactionSuccessfulScreen"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_confirm_gift.dart::\nBodyConfirmRedeemGift" {
+  +Gift choosenGift
+  +State<BodyConfirmRedeemGift> createState()
+}
+
+"cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_confirm_gift.dart::\nBodyConfirmRedeemGift" o-- "cakrawala_mobile::\ncomponents::\nchoose_gift_table.dart::\nGift"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_confirm_gift.dart::\nBodyConfirmRedeemGift"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_confirm_gift.dart::\n_BodyConfirmRedeemGiftState" {
+  +int amount
+  +dynamic getCurrentTime()
+  +Widget build()
+  -dynamic _showDialog()
+  +dynamic showConfirmDialog()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_confirm_gift.dart::\n_BodyConfirmRedeemGiftState"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_invoice.dart::\nInvoiceHadiahText" {
+  +String text
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_invoice.dart::\nInvoiceHadiahText"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_invoice.dart::\nWhiteInvoiceContainer" {
+  +String title
+  +String subtitle
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_invoice.dart::\nWhiteInvoiceContainer"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_invoice.dart::\nProductsDetail" {
+  +String productName
+  +double price
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_invoice.dart::\nProductsDetail"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_invoice.dart::\nProduct" {
+  +String productName
+  +int price
+}
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_invoice.dart::\nBodyInvoice" {
+  +int nominal
+  +String namaGift
+  +String time
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_invoice.dart::\nBodyInvoice"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_redeem_gift.dart::\nBodyRedeemGift" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_redeem_gift.dart::\nBodyRedeemGift"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_redeem_success.dart::\nBodyRedeemSuccessful" {
+  +int nominal
+  +String namaGift
+  +String time
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nbody_redeem_success.dart::\nBodyRedeemSuccessful"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nconfirm_redeem_gift.dart::\nConfirmRedeemGiftScreen" {
+  +Gift choosenGift
+  +Widget build()
+}
+
+"cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nconfirm_redeem_gift.dart::\nConfirmRedeemGiftScreen" o-- "cakrawala_mobile::\ncomponents::\nchoose_gift_table.dart::\nGift"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nconfirm_redeem_gift.dart::\nConfirmRedeemGiftScreen"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\ndummy_data.dart::\nDummyDataHadiah" {
+  +List<Map<String, Object>> data
+}
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\ninvoice.dart::\nInvoiceScreen" {
+  +int nominal
+  +String namaGift
+  +String time
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\ninvoice.dart::\nInvoiceScreen"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nredeem_success.dart::\nRedeemSuccessfulScreen" {
+  +int nominal
+  +String namaGift
+  +String time
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\ncomponents::\nredeem_success.dart::\nRedeemSuccessfulScreen"
+
+class "cakrawala_mobile::\nScreens::\nRedeemGift::\nredeem_gift.dart::\nRedeemGift" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nRedeemGift::\nredeem_gift.dart::\nRedeemGift"
+
+class "cakrawala_mobile::\nScreens::\nSignup::\ncomponents::\nbackground.dart::\nBackground" {
+  +Widget child
+  +Widget build()
+}
+
+"cakrawala_mobile::\nScreens::\nSignup::\ncomponents::\nbackground.dart::\nBackground" o-- "flutter::\nsrc::\nwidgets::\nframework.dart::\nWidget"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nSignup::\ncomponents::\nbackground.dart::\nBackground"
+
+class "cakrawala_mobile::\nScreens::\nSignup::\ncomponents::\nbody.dart::\nBody" {
+  +State<Body> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nSignup::\ncomponents::\nbody.dart::\nBody"
+
+class "cakrawala_mobile::\nScreens::\nSignup::\ncomponents::\nbody.dart::\n_BodyState" {
+  +String email
+  +String name
+  +String phone
+  +String password
+  +String buttonText
+  +Widget build()
+  -dynamic _showDialog()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nSignup::\ncomponents::\nbody.dart::\n_BodyState"
+
+class "cakrawala_mobile::\nScreens::\nSignup::\nsignup_screen.dart::\nSignUpScreen" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nSignup::\nsignup_screen.dart::\nSignUpScreen"
+
+class "cakrawala_mobile::\nScreens::\nSplashScreen::\ncomponents::\nbackground.dart::\nBackground" {
+  +Widget child
+  +Widget build()
+}
+
+"cakrawala_mobile::\nScreens::\nSplashScreen::\ncomponents::\nbackground.dart::\nBackground" o-- "flutter::\nsrc::\nwidgets::\nframework.dart::\nWidget"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nSplashScreen::\ncomponents::\nbackground.dart::\nBackground"
+
+class "cakrawala_mobile::\nScreens::\nSplashScreen::\ncomponents::\nbody.dart::\nBody" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nSplashScreen::\ncomponents::\nbody.dart::\nBody"
+
+class "cakrawala_mobile::\nScreens::\nSplashScreen::\nsplash_screen.dart::\nSplashScreen" {
+  +State<StatefulWidget> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nSplashScreen::\nsplash_screen.dart::\nSplashScreen"
+
+class "cakrawala_mobile::\nScreens::\nSplashScreen::\nsplash_screen.dart::\nSplashView" {
+  +Widget build()
+  +void initState()
+  +dynamic loadData()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nSplashScreen::\nsplash_screen.dart::\nSplashView"
+
+class "cakrawala_mobile::\nScreens::\nTopup::\ncomponents::\nbody.dart::\nBody" {
+  +Map<String, dynamic> userInfo
+  +State<Body> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nTopup::\ncomponents::\nbody.dart::\nBody"
+
+class "cakrawala_mobile::\nScreens::\nTopup::\ncomponents::\nbody.dart::\n_BodyState" {
+  +int topUpAmount
+  +Widget build()
+  -dynamic _showDialog()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nTopup::\ncomponents::\nbody.dart::\n_BodyState"
+
+class "cakrawala_mobile::\nScreens::\nTopup::\ntopup_screen.dart::\nTopUpScreen" {
+  +Map<String, dynamic> userInfo
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nTopup::\ntopup_screen.dart::\nTopUpScreen"
+
+class "cakrawala_mobile::\nScreens::\nTransfer::\nchoose_transfer_screen.dart::\nChooseTransferScreen" {
+  +String phone
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nTransfer::\nchoose_transfer_screen.dart::\nChooseTransferScreen"
+
+class "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody.dart::\nBody" {
+  +User choosenUser
+  +State<Body> createState()
+}
+
+"cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody.dart::\nBody" o-- "cakrawala_mobile::\ncomponents::\nchoose_account_table1.dart::\nUser"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody.dart::\nBody"
+
+class "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody.dart::\n_BodyState" {
+  +int amount
+  +Widget build()
+  -dynamic _showDialog()
+  +dynamic showConfirmDialog()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody.dart::\n_BodyState"
+
+class "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody_choose.dart::\nBodyChoose" {
+  +String phone
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody_choose.dart::\nBodyChoose"
+
+class "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody_input.dart::\nBodyInput" {
+  +State<BodyInput> createState()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatefulWidget" <|-- "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody_input.dart::\nBodyInput"
+
+class "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody_input.dart::\n_BodyInput" {
+  +String phoneNumber
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nState" <|-- "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\nbody_input.dart::\n_BodyInput"
+
+class "cakrawala_mobile::\nScreens::\nTransfer::\ncomponents::\ndummy_data.dart::\nDummyData" {
+  +List<Map<String, Object>> data
+}
+
+class "cakrawala_mobile::\nScreens::\nTransfer::\ninput_phone_number.dart::\nInputPhoneNumberScreen" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nTransfer::\ninput_phone_number.dart::\nInputPhoneNumberScreen"
+
+class "cakrawala_mobile::\nScreens::\nTransfer::\ntransfer_screen.dart::\nTransferScreen" {
+  +User choosenUser
+  +Widget build()
+}
+
+"cakrawala_mobile::\nScreens::\nTransfer::\ntransfer_screen.dart::\nTransferScreen" o-- "cakrawala_mobile::\ncomponents::\nchoose_account_table1.dart::\nUser"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nTransfer::\ntransfer_screen.dart::\nTransferScreen"
+
+class "cakrawala_mobile::\nScreens::\nTransfer::\nuser_not_found.dart::\nUserNotFoundScreen" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nTransfer::\nuser_not_found.dart::\nUserNotFoundScreen"
+
+class "cakrawala_mobile::\nScreens::\nWelcome::\ncomponents::\nbackground.dart::\nBackground" {
+  +Widget child
+  +Widget build()
+}
+
+"cakrawala_mobile::\nScreens::\nWelcome::\ncomponents::\nbackground.dart::\nBackground" o-- "flutter::\nsrc::\nwidgets::\nframework.dart::\nWidget"
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nWelcome::\ncomponents::\nbackground.dart::\nBackground"
+
+class "cakrawala_mobile::\nScreens::\nWelcome::\ncomponents::\nbody.dart::\nBody" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nWelcome::\ncomponents::\nbody.dart::\nBody"
+
+class "cakrawala_mobile::\nScreens::\nWelcome::\nwelcome_screen.dart::\nWelcomeScreen" {
+  +Widget build()
+}
+
+"flutter::\nsrc::\nwidgets::\nframework.dart::\nStatelessWidget" <|-- "cakrawala_mobile::\nScreens::\nWelcome::\nwelcome_screen.dart::\nWelcomeScreen"
+
+class "cakrawala_mobile::\nutils::\nauthentication-api.dart::\nAuthenticationApi" {
+  {static} -Map<String, String> _headers
+  {static} +Future<CustomHttpResponse<Map<String, dynamic>>> loginRequest()
+  {static} +Future<CustomHttpResponse<Map<String, dynamic>>> registerRequest()
+}
+
+class "cakrawala_mobile::\nutils::\ncustom-http-response.dart::\nCustomHttpResponse" {
+  +int status
+  +String message
+  +T data
+}
+
+class "cakrawala_mobile::\nutils::\ngift-api.dart::\nGiftAPI" {
+  -Future<Map<String, String>> _getHeaders()
+  +Future<List<Gift>> fetchGift()
+  +Future<CustomHttpResponse<Map<String, dynamic>>> getGift()
+}
+
+class "cakrawala_mobile::\nutils::\nhistory-api.dart::\nHistoryAPI" {
+  {static} -Future<Map<String, String>> _getHeaders()
+  {static} +Future<List<TransactionHistory>> getHistoryAdmin()
+}
+
+class "cakrawala_mobile::\nutils::\nhistory-api.dart::\nTransactionHistory" {
+  +String transactionType
+  +String destID
+  +String nominal
+  +String createdAt
+}
+
+class "cakrawala_mobile::\nutils::\nmerchant-api.dart::\nMerchantAPI" {
+  -Future<Map<String, String>> _getHeaders()
+  +Future<List<Merchant>> fetchMerchant()
+  +Future<CustomHttpResponse<Map<String, dynamic>>> getMerchant()
+}
+
+class "cakrawala_mobile::\nutils::\npayment-api.dart::\nPembayaranAPI" {
+  {static} -Future<Map<String, String>> _getHeaders()
+  {static} +Future<CustomHttpResponse<dynamic>> payToMerchant()
+}
+
+class "cakrawala_mobile::\nutils::\npoints-api.dart::\nPointsAPI" {
+  {static} -Future<Map<String, String>> _getHeaders()
+  {static} +Future<int> payCalculatePoints()
+}
+
+class "cakrawala_mobile::\nutils::\nredeem-api.dart::\nRedeemAPI" {
+  {static} -Future<Map<String, String>> _getHeaders()
+  {static} +Future<CustomHttpResponse<bool>> redeemGifts()
+}
+
+class "cakrawala_mobile::\nutils::\ntopup-api.dart::\nTopUpAPI" {
+  {static} -Future<Map<String, String>> _getHeaders()
+  {static} +Future<CustomHttpResponse<bool>> topUp()
+}
+
+class "cakrawala_mobile::\nutils::\ntransfer-api.dart::\nTransferAPI" {
+  {static} -Future<Map<String, String>> _getHeaders()
+  {static} +Future<CustomHttpResponse<bool>> transfer()
+}
+
+class "cakrawala_mobile::\nutils::\nuser-api.dart::\nUserAPI" {
+  -Future<Map<String, String>> _getHeaders()
+  +Future<List<User>> fetchUser()
+}
+
+class "cakrawala_mobile::\nutils::\nuserinfo-api.dart::\nUserInfoAPI" {
+  {static} -Future<Map<String, String>> _getHeaders()
+  {static} +Future<CustomHttpResponse<Map<String, dynamic>>> getUserInformation()
+}
+
+class "cakrawala_mobile::\nvalue-store::\nconstant.dart::\nConstant" {
+  {static} +String URL_BE
+}
+
+class "cakrawala_mobile::\nvalue-store::\nsp-handler.dart::\nSharedPreferenceHandler" {
+  +SharedPreferences sp
+  +void init()
+  +void setSharedPreference()
+  +Future<bool> setToken()
+  +String getToken()
+  +Future<bool> isTokenActive()
+  +Future<bool> revokeToken()
+  {static} +Future<SharedPreferenceHandler> getHandler()
+}
+
+"cakrawala_mobile::\nvalue-store::\nsp-handler.dart::\nSharedPreferenceHandler" o-- "shared_preferences::\nshared_preferences.dart::\nSharedPreferences"
+
+
+@enduml
